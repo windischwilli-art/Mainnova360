@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainView 360 Frankfurt | Virtuelle Rundgänge</title>
+    <style>
+        :root {
+            --primary: #1a2a3a;
+            --accent: #c0392b;
+            --light: #f4f7f9;
+        }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        
+        /* Header & Navigation */
+        header { background: var(--primary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(26,42,58,0.8), rgba(26,42,58,0.8)), url('https://images.unsplash.com/photo-1541604193435-22287d32c2c2?auto=format&fit=crop&q=80&w=2000'); 
+                background-size: cover; background-position: center; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10%; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 2rem; }
+        .btn { background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: #a93226; }
+
+        /* Pricing Section */
+        .pricing { padding: 5rem 5%; background: var(--light); text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--primary); }
+        .card.featured { border-top-color: var(--accent); transform: scale(1.05); }
+        .price { font-size: 2.5rem; font-weight: bold; margin: 1rem 0; color: var(--primary); }
+        .price span { font-size: 1rem; color: #666; }
+        ul { list-style: none; padding: 0; margin: 2rem 0; text-align: left; }
+        li { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        li::before { content: '✓'; color: var(--accent); margin-right: 10px; font-weight: bold; }
+
+        /* Contact */
+        .contact { padding: 5rem 5%; text-align: center; }
+        
+        footer { background: var(--primary); color: white; padding: 2rem; text-align: center; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">MAINVIEW 360</div>
+    <nav>
+        <a href="#pakete">Preise</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Ihr Business in Frankfurt – Virtuell Erlebbar</h1>
+    <p>Steigern Sie Ihre Sichtbarkeit bei Google Maps und gewinnen Sie das Vertrauen internationaler Kunden mit High-End 360°-Rundgängen von Ihrem Insta360-Experten.</p>
+    <a href="#kontakt" class="btn">Jetzt kostenloses Angebot anfragen</a>
+</section>
+
+<section id="pakete" class="pricing">
+    <h2>Unsere Pakete für Frankfurt</h2>
+    <div class="grid">
+        <!-- Paket 1 -->
+        <div class="card">
+            <h3>Basic „Start-up“</h3>
+            <div class="price">399 €<span> Netto</span></div>
+            <ul>
+                <li>3-5 High-Res Panoramen</li>
+                <li>Google Maps Integration</li>
+                <li>Basis-Retusche</li>
+                <li>1 Jahr Hosting inklusive</li>
+            </ul>
+            <a href="#kontakt" class="btn">Wählen</a>
+        </div>
+        <!-- Paket 2 -->
+        <div class="card featured">
+            <h3>Business „Main-Metropole“</h3>
+            <div class="price">749 €<span> Netto</span></div>
+            <ul>
+                <li>8-12 High-Res Panoramen</li>
+                <li>Interaktive Hotspots</li>
+                <li>Einbindung von Info-Punkten</li>
+                <li>Website Embed-Code</li>
+            </ul>
+            <a href="#kontakt" class="btn">Meistgewählt</a>
+        </div>
+        <!-- Paket 3 -->
+        <div class="card">
+            <h3>Premium „Skyline Elite“</h3>
+            <div class="price">ab 1.490 €<span> Netto</span></div>
+            <ul>
+                <li>Bis zu 25 Panoramen</li>
+                <li>Inkl. 360° Luftaufnahme</li>
+                <li>Individuelles Branding</li>
+                <li>Express-Lieferung (48h)</li>
+            </ul>
+            <a href="#kontakt" class="btn">Anfragen</a>
+        </div>
+    </div>
+</section>
+
+<section id="kontakt" class="contact">
+    <h2>Bereit für den nächsten Schritt?</h2>
+    <p>Lassen Sie uns gemeinsam Ihr Projekt in Frankfurt realisieren.</p>
+    <p><strong>Telefon:</strong> [DEINE NUMMER EINTRAGEN]</p>
+    <p><strong>E-Mail:</strong> [DEINE E-MAIL EINTRAGEN]</p>
+</section>
+
+<footer>
+    &copy; 2026 MainView 360 Frankfurt. Alle Preise gemäß Preisliste 2026[cite: 1].
+</footer>
+
+</body>
+</html>
