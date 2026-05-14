@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MainView 360 Frankfurt | Virtuelle Rundgänge & Google Maps</title>
+    <title>MainView 360 Frankfurt | Virtuelle Rundgänge</title>
     <style>
         :root {
             --primary: #1a2a3a;
@@ -18,38 +18,41 @@
         nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
 
         .hero { background: linear-gradient(rgba(26,42,58,0.8), rgba(26,42,58,0.8)), url('https://images.unsplash.com/photo-1541604193435-22287d32c2c2?auto=format&fit=crop&q=80&w=2000'); 
-                background-size: cover; background-position: center; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10%; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 2rem; }
+                background-size: cover; background-position: center; height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10%; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
 
-        .demo-section { padding: 60px 5%; text-align: center; background-color: #fff; }
-        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 900px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #eee; }
-        .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .demo-section { padding: 40px 5%; text-align: center; background-color: #fff; }
+        .iframe-wrapper { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #000; /* Falls es lädt, sieht man kurz schwarz */
+            border: 1px solid #ddd;
+            line-height: 0;
+        }
 
         .pricing { padding: 5rem 5%; background: var(--light); text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--primary); transition: 0.3s; }
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--primary); }
         .card.featured { border-top-color: var(--accent); transform: scale(1.05); }
         .price { font-size: 2.5rem; font-weight: bold; margin: 1rem 0; color: var(--primary); }
-        .price span { font-size: 1rem; color: #666; }
         ul { list-style: none; padding: 0; margin: 2rem 0; text-align: left; }
         li { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 0.9rem; }
-        li::before { content: '✓'; color: var(--accent); margin-right: 10px; font-weight: bold; }
+        li::before { content: '✓'; color: var(--accent); margin-right: 10px; }
 
-        .contact-section { padding: 80px 5%; background-color: #fff; text-align: center; }
-        .form-container { max-width: 600px; margin: 0 auto; text-align: left; background: #f4f7f9; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-family: inherit; }
+        .contact-section { padding: 60px 5%; background-color: #fff; text-align: center; }
+        .form-container { max-width: 600px; margin: 0 auto; text-align: left; background: #f4f7f9; padding: 30px; border-radius: 10px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
 
-        .btn { background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
-        .btn:hover { background: #a93226; }
+        .btn { background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; cursor: pointer; border: none; }
 
-        footer { padding: 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.85rem; border-top: 5px solid var(--accent); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .footer-title { color: #fff; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 15px; }
+        footer { padding: 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.8rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .card.featured { transform: scale(1); } }
+        @media (max-width: 768px) { .hero h1 { font-size: 1.8rem; } .card.featured { transform: scale(1); } }
     </style>
 </head>
 <body>
@@ -64,64 +67,56 @@
 </header>
 
 <section class="hero">
-    <h1>MainView 360: Frankfurt am Main virtuell erleben</h1>
-    <p>Vom Westend bis zum Flughafen – wir setzen Frankfurter Unternehmen mit High-End 360°-Touren perfekt in Szene.</p>
-    <a href="#kontakt" class="btn">Jetzt Beratung anfragen</a>
+    <h1>MainView 360 Frankfurt</h1>
+    <p>Premium Google Street View Touren für Ihr Unternehmen.</p>
+    <a href="#kontakt" class="btn">Beratung anfragen</a>
 </section>
 
 <section id="demo" class="demo-section">
-    <h2>Interaktive Google Maps Referenz</h2>
-    <p style="max-width: 700px; margin: 0 auto 30px auto; color: #555;">
-        Wir bringen Ihr Unternehmen direkt in die Google Suche und auf Google Maps – interaktiv und hochauflösend.
-    </p>
+    <h2>Interaktive Referenz</h2>
+    <p style="color: #666; margin-bottom: 30px;">Klicken Sie in das Bild, um die 360°-Ansicht zu aktivieren.</p>
     
-    <div class="iframe-container">
-        <!-- Google Maps Embed Link -->
+    <div class="iframe-wrapper">
+        <!-- Neuer, stabilerer Embed-Link -->
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!4v1715695500000!6m8!1m7!1sCIABIhADydER5C1nfmfyx5kACL9p!2m2!1d47.3897104!2d8.5461187!3f147.81!4f0!5f0!7i11968!8i5984" 
+            src="https://www.google.com/maps/embed?pb=!4v1715695500000!6m8!1m7!1sCAABIhADydER5C1nfmfyx5kACL9p!2m2!1d47.3897104!2d8.5461187!3f147.81!4f0!5f0!7i11968!8i5984" 
             width="100%" 
             height="450" 
             style="border:0;" 
             allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
+            loading="eager"
+            referrerpolicy="no-referrer">
         </iframe>
     </div>
 </section>
 
 <section id="pakete" class="pricing">
-    <h2>Preise für Ihr Projekt in Frankfurt</h2>
+    <h2>Pakete & Preise</h2>
     <div class="grid">
         <div class="card">
-            <h3>Basic „Start-up“</h3>
-            <div class="price">399 €<span> Netto</span></div>
+            <h3>Basic</h3>
+            <div class="price">399 €</div>
             <ul>
-                <li>3-5 High-Res 360° Panoramen</li>
-                <li>Integration in Google Maps & Street View</li>
-                <li>Basis-Retusche & Verpixelung</li>
-                <li>1 Jahr Hosting inklusive</li>
+                <li>3-5 Panoramen</li>
+                <li>Google Maps Integration</li>
             </ul>
             <a href="#kontakt" class="btn">Anfragen</a>
         </div>
         <div class="card featured">
-            <h3>Business „Main-Metropole“</h3>
-            <div class="price">749 €<span> Netto</span></div>
+            <h3>Business</h3>
+            <div class="price">749 €</div>
             <ul>
-                <li>8-12 High-Res 360° Panoramen</li>
-                <li>Interaktive Hotspots zur Navigation</li>
-                <li>Einbindung von Info-Punkten</li>
-                <li>HTML-Embed Code für die Website</li>
+                <li>8-12 Panoramen</li>
+                <li>Navigation & Hotspots</li>
             </ul>
             <a href="#kontakt" class="btn">Meistgewählt</a>
         </div>
         <div class="card">
-            <h3>Premium „Skyline Elite“</h3>
-            <div class="price">ab 1.490 €<span> Netto</span></div>
+            <h3>Premium</h3>
+            <div class="price">ab 1.490 €</div>
             <ul>
-                <li>Bis zu 25 High-Res Panoramen</li>
-                <li>Inkl. 360° Luftaufnahme (Skyline)</li>
-                <li>Individuelles Branding (Logo)</li>
-                <li>Express-Lieferung innerhalb von 48h</li>
+                <li>Individuelle Tour</li>
+                <li>Inkl. Luftaufnahme</li>
             </ul>
             <a href="#kontakt" class="btn">Anfragen</a>
         </div>
@@ -129,34 +124,20 @@
 </section>
 
 <section id="kontakt" class="contact-section">
-    <h2>Kontaktanfrage</h2>
+    <h2>Anfrage senden</h2>
     <div class="form-container">
         <form action="https://formspree.io/f/mzdoqwdl" method="POST">
+            <div class="form-group"><input type="text" name="name" placeholder="Name / Firma" required></div>
+            <div class="form-group"><input type="email" name="email" placeholder="E-Mail" required></div>
             <div class="form-group">
-                <label>Name / Firma</label>
-                <input type="text" name="name" required>
-            </div>
-            <div class="form-group">
-                <label>E-Mail Adresse</label>
-                <input type="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label>Telefonnummer</label>
-                <input type="tel" name="telefon" placeholder="Für Rückfragen zum Shooting">
-            </div>
-            <div class="form-group">
-                <label>Paket-Interesse</label>
                 <select name="paket">
-                    <option value="Basic">Basic (399 €)</option>
-                    <option value="Business">Business (749 €)</option>
-                    <option value="Premium">Premium (ab 1.490 €)</option>
+                    <option>Basic</option>
+                    <option>Business</option>
+                    <option>Premium</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label>Nachricht</label>
-                <textarea name="message" rows="4" placeholder="Beschreiben Sie kurz Ihr Projekt..." required></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;">Anfrage jetzt absenden</button>
+            <div class="form-group"><textarea name="message" rows="4" placeholder="Ihre Nachricht..."></textarea></div>
+            <button type="submit" class="btn" style="width: 100%;">Absenden</button>
         </form>
     </div>
 </section>
@@ -164,24 +145,17 @@
 <footer>
     <div class="footer-grid">
         <div>
-            <h3 class="footer-title">Impressum</h3>
-            <p>
-                <strong>MainView 360 Frankfurt</strong><br>
-                Inhaber: [DEIN NAME]<br>
-                [STRASSE]<br>
-                [PLZ] Frankfurt am Main<br><br>
-                E-Mail: [DEINE E-MAIL]
-            </p>
+            <strong>Impressum</strong><br>
+            MainView 360 Frankfurt<br>
+            Frankfurt am Main
         </div>
         <div>
-            <h3 class="footer-title">Datenschutz</h3>
-            <p>
-                Wir achten strikt auf die Einhaltung der DSGVO. Personenbezogene Merkmale wie Gesichter werden unkenntlich gemacht.
-            </p>
+            <strong>Datenschutz</strong><br>
+            Wir verpixeln Gesichter und Kennzeichen gemäß DSGVO.
         </div>
     </div>
-    <div style="text-align: center; margin-top: 30px; opacity: 0.6;">
-        <p>&copy; 2026 MainView 360 Frankfurt | Alle Preise zzgl. MwSt.</p>
+    <div style="text-align: center; margin-top: 20px; opacity: 0.5;">
+        &copy; 2026 MainView 360
     </div>
 </footer>
 
