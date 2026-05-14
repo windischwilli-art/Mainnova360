@@ -36,10 +36,16 @@
         li { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 0.9rem; }
         li::before { content: '✓'; color: var(--accent); margin-right: 10px; font-weight: bold; }
 
-        .btn { background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .contact-section { padding: 80px 5%; background-color: #fff; text-align: center; }
+        .form-container { max-width: 600px; margin: 0 auto; text-align: left; background: #f4f7f9; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-family: inherit; }
+
+        .btn { background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
         .btn:hover { background: #a93226; }
 
-        #impressum { padding: 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.85rem; border-top: 5px solid var(--accent); }
+        footer { padding: 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.85rem; border-top: 5px solid var(--accent); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-title { color: #fff; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 15px; }
 
@@ -53,21 +59,20 @@
     <nav>
         <a href="#demo">Demo</a>
         <a href="#pakete">Preise</a>
-        <a href="#impressum">Kontakt</a>
+        <a href="#kontakt">Kontakt</a>
     </nav>
 </header>
 
 <section class="hero">
     <h1>MainView 360: Frankfurt am Main virtuell erleben</h1>
-    <p>Vom Westend bis zum Flughafen – wir setzen Frankfurter Unternehmen mit High-End 360°-Touren perfekt in Szene. Steigern Sie Ihre Buchungsraten und Ihre Sichtbarkeit bei Google Maps.</p>
-    <a href="#impressum" class="btn">Jetzt Beratung anfragen</a>
+    <p>Vom Westend bis zum Flughafen – wir setzen Frankfurter Unternehmen mit High-End 360°-Touren perfekt in Szene. Steigern Sie Ihre Sichtbarkeit bei Google Maps.</p>
+    <a href="#kontakt" class="btn">Jetzt Beratung anfragen</a>
 </section>
 
 <section id="demo" class="demo-section">
     <h2>Ihr Business in 360 Grad</h2>
     <p style="max-width: 700px; margin: 0 auto 30px auto; color: #555;">
-        Interaktive Rundgänge sind der Goldstandard für Frankfurter Hotels und Immobilien. 
-        Erleben Sie hier die Qualität einer modernen Wohnung – flüssig und hochauflösend.
+        Interaktive Rundgänge sind der Goldstandard für Frankfurter Hotels und Immobilien. Erleben Sie hier die Qualität einer modernen Wohnung.
     </p>
     <div class="iframe-container">
         <iframe 
@@ -79,8 +84,7 @@
 </section>
 
 <section id="pakete" class="pricing">
-    <h2>Maßgeschneiderte Lösungen für den Main</h2>
-    <p>Wählen Sie das passende Paket für Ihr Frankfurter Unternehmen:</p>
+    <h2>Preise für Ihr Projekt in Frankfurt</h2>
     <div class="grid">
         <div class="card">
             <h3>Basic „Start-up“</h3>
@@ -91,7 +95,7 @@
                 <li>Basis-Retusche & Verpixelung</li>
                 <li>1 Jahr Hosting inklusive</li>
             </ul>
-            <a href="#impressum" class="btn">Anfragen</a>
+            <a href="#kontakt" class="btn">Anfragen</a>
         </div>
         <div class="card featured">
             <h3>Business „Main-Metropole“</h3>
@@ -99,10 +103,10 @@
             <ul>
                 <li>8-12 High-Res 360° Panoramen</li>
                 <li>Interaktive Hotspots zur Navigation</li>
-                <li>Einbindung von Info-Punkten (z.B. Menü)</li>
+                <li>Einbindung von Info-Punkten</li>
                 <li>HTML-Embed Code für die Website</li>
             </ul>
-            <a href="#impressum" class="btn">Meistgewählt</a>
+            <a href="#kontakt" class="btn">Meistgewählt</a>
         </div>
         <div class="card">
             <h3>Premium „Skyline Elite“</h3>
@@ -110,30 +114,58 @@
             <ul>
                 <li>Bis zu 25 High-Res Panoramen</li>
                 <li>Inkl. 360° Luftaufnahme (Skyline)</li>
-                <li>Individuelles Branding (Logo-Einbindung</li>
+                <li>Individuelles Branding (Logo)</li>
                 <li>Express-Lieferung innerhalb von 48h</li>
             </ul>
-            <a href="#impressum" class="btn">Anfragen</a>
+            <a href="#kontakt" class="btn">Anfragen</a>
         </div>
     </div>
 </section>
 
-<section id="impressum">
+<section id="kontakt" class="contact-section">
+    <h2>Kontaktanfrage</h2>
+    <div class="form-container">
+        <!-- Ersetze DEINE_ID durch deine Formspree-ID -->
+        <form action="https://formspree.io/f/DEINE_ID" method="POST">
+            <div class="form-group">
+                <label>Name / Firma</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>E-Mail Adresse</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Paket-Interesse</label>
+                <select name="paket">
+                    <option value="Basic">Basic (399 €)</option>
+                    <option value="Business">Business (749 €)</option>
+                    <option value="Premium">Premium (ab 1.490 €)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nachricht</label>
+                <textarea name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Anfrage absenden</button>
+        </form>
+    </div>
+</section>
+
+<footer>
     <div class="footer-grid">
         <div>
             <h3 class="footer-title">Impressum</h3>
             <p>
                 <strong>MainView 360 Frankfurt</strong><br>
                 Inhaber: [DEIN NAME]<br>
-                [STRASSE & HAUSNUMMER]<br>
+                [STRASSE]<br>
                 [PLZ] Frankfurt am Main<br><br>
-                <strong>Kontakt:</strong><br>
-                E-Mail: [DEINE E-MAIL]<br>
-                Tel: [DEINE TELEFONNUMMER]
+                E-Mail: [DEINE E-MAIL]
             </p>
         </div>
         <div>
-            <h3 class="footer-title">Datenschutz (DSGVO)</h3>
+            <h3 class="footer-title">Datenschutz</h3>
             <p>
                 Wir achten strikt auf die Einhaltung der DSGVO. Personenbezogene Merkmale wie Gesichter oder Kfz-Kennzeichen 
                 werden in unseren Touren standardmäßig unkenntlich gemacht.
@@ -143,7 +175,7 @@
     <div style="text-align: center; margin-top: 30px; opacity: 0.6;">
         <p>&copy; 2026 MainView 360 Frankfurt | Alle Preise zzgl. MwSt.</p>
     </div>
-</section>
+</footer>
 
 </body>
 </html>
