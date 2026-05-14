@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MainView 360 Frankfurt | Virtuelle Rundgänge & Google Maps</title>
+    <title>MainView 360 Frankfurt | Virtuelle Rundgänge</title>
     <style>
         :root {
             --primary: #1a2a3a;
@@ -11,68 +11,49 @@
             --light: #f4f7f9;
             --text: #333;
         }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; color: var(--text); line-height: 1.6; scroll-behavior: smooth; background-color: #fff; }
         
         header { background: var(--primary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
         nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
 
         .hero { background: linear-gradient(rgba(26,42,58,0.8), rgba(26,42,58,0.8)), url('https://images.unsplash.com/photo-1541604193435-22287d32c2c2?auto=format&fit=crop&q=80&w=2000'); 
-                background-size: cover; background-position: center; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10%; }
+                background-size: cover; background-position: center; height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10%; }
         .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 2rem; }
 
-        /* Demo-Sektion Fix für das Schwarz-Bild */
-        .demo-section { padding: 60px 5%; text-align: center; background-color: #fff; }
-        .demo-container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            position: relative;
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            background: #000;
-        }
-        .demo-placeholder {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            opacity: 0.6;
-            display: block;
-        }
-        .demo-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            width: 90%;
-        }
+        .demo-section { padding: 60px 5%; text-align: center; }
+        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 1000px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
+        /* Preiskarten wie in Bildschirmfoto 2026-05-14 um 16.31.56.png */
         .pricing { padding: 5rem 5%; background: var(--light); text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--primary); transition: 0.3s; }
-        .card.featured { border-top-color: var(--accent); transform: scale(1.05); }
-        .price { font-size: 2.5rem; font-weight: bold; margin: 1rem 0; color: var(--primary); }
-        .price span { font-size: 1rem; color: #666; }
-        ul { list-style: none; padding: 0; margin: 2rem 0; text-align: left; }
-        li { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 0.9rem; }
-        li::before { content: '✓'; color: var(--accent); margin-right: 10px; font-weight: bold; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .card { background: white; padding: 2.5rem 1.5rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; transition: 0.3s; }
+        .card.featured { border-top: 5px solid var(--accent); transform: scale(1.05); z-index: 2; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: #1a2a3a; }
+        .price { font-size: 3rem; font-weight: bold; margin: 1rem 0; color: #1a2a3a; }
+        .price span { font-size: 1rem; color: #666; font-weight: normal; }
+        
+        .card ul { list-style: none; padding: 0; margin: 2rem 0; text-align: left; }
+        .card li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+        .card li::before { content: '✓'; color: var(--accent); margin-right: 12px; font-weight: bold; }
 
+        /* Kontaktformular wie in Bildschirmfoto 2026-05-14 um 16.31.45.jpg */
         .contact-section { padding: 80px 5%; background-color: #fff; text-align: center; }
-        .form-container { max-width: 600px; margin: 0 auto; text-align: left; background: #f4f7f9; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-family: inherit; }
+        .form-container { max-width: 750px; margin: 0 auto; text-align: left; background: #f8f9fb; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 1.1rem; }
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: inherit; font-size: 1rem; background: #fff;
+        }
+        .form-group input::placeholder { color: #aaa; }
 
-        .btn { background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
+        .btn { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; transition: 0.3s; border: none; cursor: pointer; font-size: 1rem; }
         .btn:hover { background: #a93226; transform: translateY(-2px); }
 
-        footer { padding: 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.85rem; border-top: 5px solid var(--accent); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .footer-title { color: #fff; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 15px; }
-
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .card.featured { transform: scale(1); } .demo-placeholder { height: 350px; } }
+        footer { padding: 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.9rem; text-align: center; }
+        
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .card.featured { transform: scale(1); } }
     </style>
 </head>
 <body>
@@ -80,70 +61,68 @@
 <header>
     <div class="logo">MAINVIEW 360</div>
     <nav>
-        <a href="#demo">Referenzen</a>
+        <a href="#demo">Referenz</a>
         <a href="#pakete">Preise</a>
         <a href="#kontakt">Kontakt</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h1>MainView 360: Frankfurt am Main virtuell erleben</h1>
-    <p>Wir setzen Frankfurter Unternehmen mit High-End 360°-Touren perfekt in Szene.</p>
-    <a href="#kontakt" class="btn">Jetzt Beratung anfragen</a>
+    <h1>MainView 360 Frankfurt</h1>
+    <p>Premium High-Res 360° Rundgänge für Ihr Business</p>
 </section>
 
 <section id="demo" class="demo-section">
-    <h2>Interaktive Referenz</h2>
-    <p style="max-width: 700px; margin: 0 auto 30px auto; color: #555;">
-        Klicken Sie auf das Bild, um den virtuellen Rundgang bei Google Street View zu öffnen.
-    </p>
-    
-    <div class="demo-container">
-        <!-- Vorschaubild statt fehlerhaftem Iframe -->
-        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1200" class="demo-placeholder" alt="Vorschau 360 Tour">
-        <div class="demo-content">
-            <h3 style="font-size: 2rem; margin-bottom: 15px;">Mood Hairdressers</h3>
-            <p style="margin-bottom: 25px;">Erleben Sie unser Referenzprojekt interaktiv in Google Maps.</p>
-            <a href="https://maps.app.goo.gl/qX8s8S8S8S8S8S8S8" target="_blank" class="btn" style="padding: 15px 40px; font-size: 1.1rem;">
-                360° Tour starten 🌐
-            </a>
-        </div>
+    <h2>Interaktive Tour</h2>
+    <div class="iframe-container">
+        <!-- Google Maps Panorama -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!4v1715695500000!6m8!1m7!1sCIABIhADydER5C1nfmfyx5kACL9p!2m2!1d47.3897104!2d8.5461187!3f147.81!4f0!5f0!7i11968!8i5984" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
 </section>
 
 <section id="pakete" class="pricing">
-    <h2>Preise für Ihr Projekt</h2>
+    <h2>Preise für Ihr Projekt in Frankfurt</h2>
     <div class="grid">
+        <!-- Karte 1 -->
         <div class="card">
             <h3>Basic „Start-up“</h3>
-            <div class="price">399 €<span> Netto</span></div>
+            <div class="price">399 € <span style="font-size: 1rem;">Netto</span></div>
             <ul>
                 <li>3-5 High-Res 360° Panoramen</li>
-                <li>Integration in Google Maps</li>
-                <li>Basis-Retusche</li>
+                <li>Integration in Google Maps & Street View</li>
+                <li>Basis-Retusche & Verpixelung</li>
                 <li>1 Jahr Hosting inklusive</li>
             </ul>
             <a href="#kontakt" class="btn">Anfragen</a>
         </div>
+
+        <!-- Karte 2 (Featured) -->
         <div class="card featured">
-            <h3>Business „Metropole“</h3>
-            <div class="price">749 €<span> Netto</span></div>
+            <h3>Business „Main-Metropole“</h3>
+            <div class="price">749 € <span style="font-size: 1rem;">Netto</span></div>
             <ul>
                 <li>8-12 High-Res 360° Panoramen</li>
-                <li>Interaktive Hotspots</li>
+                <li>Interaktive Hotspots zur Navigation</li>
                 <li>Einbindung von Info-Punkten</li>
-                <li>HTML-Embed Code für Website</li>
+                <li>HTML-Embed Code für die Website</li>
             </ul>
-            <a href="#kontakt" class="btn">Meistgewählt</a>
+            <a href="#kontakt" class="btn" style="width: 80%;">Meistgewählt</a>
         </div>
+
+        <!-- Karte 3 -->
         <div class="card">
-            <h3>Premium „Elite“</h3>
-            <div class="price">ab 1.490 €<span> Netto</span></div>
+            <h3>Premium „Skyline Elite“</h3>
+            <div class="price">ab 1.490 € <span style="font-size: 1rem;">Netto</span></div>
             <ul>
                 <li>Bis zu 25 High-Res Panoramen</li>
-                <li>Inkl. 360° Luftaufnahme</li>
-                <li>Individuelles Branding</li>
-                <li>Express-Lieferung</li>
+                <li>Inkl. 360° Luftaufnahme (Skyline)</li>
+                <li>Individuelles Branding (Logo)</li>
+                <li>Express-Lieferung innerhalb von 48h</li>
             </ul>
             <a href="#kontakt" class="btn">Anfragen</a>
         </div>
@@ -151,7 +130,7 @@
 </section>
 
 <section id="kontakt" class="contact-section">
-    <h2>Kontaktanfrage</h2>
+    <h2 style="font-size: 2.5rem; margin-bottom: 40px;">Kontaktanfrage</h2>
     <div class="form-container">
         <form action="https://formspree.io/f/mzdoqwdl" method="POST">
             <div class="form-group">
@@ -163,6 +142,10 @@
                 <input type="email" name="email" required>
             </div>
             <div class="form-group">
+                <label>Telefonnummer</label>
+                <input type="tel" name="telefon" placeholder="Für Rückfragen zum Shooting">
+            </div>
+            <div class="form-group">
                 <label>Paket-Interesse</label>
                 <select name="paket">
                     <option value="Basic">Basic (399 €)</option>
@@ -172,33 +155,15 @@
             </div>
             <div class="form-group">
                 <label>Nachricht</label>
-                <textarea name="message" rows="4" placeholder="Beschreiben Sie kurz Ihr Projekt..." required></textarea>
+                <textarea name="message" rows="5" placeholder="Beschreiben Sie kurz Ihr Projekt..."></textarea>
             </div>
-            <button type="submit" class="btn" style="width: 100%;">Anfrage jetzt absenden</button>
+            <button type="submit" class="btn" style="width: 100%; padding: 20px;">Anfrage jetzt absenden</button>
         </form>
     </div>
 </section>
 
 <footer>
-    <div class="footer-grid">
-        <div>
-            <h3 class="footer-title">Impressum</h3>
-            <p>
-                <strong>MainView 360 Frankfurt</strong><br>
-                Frankfurt am Main<br>
-                E-Mail: kontakt@mainview360.de
-            </p>
-        </div>
-        <div>
-            <h3 class="footer-title">Datenschutz</h3>
-            <p>
-                Wir verarbeiten Ihre Daten DSGVO-konform. Personenbezogene Merkmale werden unkenntlich gemacht.
-            </p>
-        </div>
-    </div>
-    <div style="text-align: center; margin-top: 30px; opacity: 0.6;">
-        <p>&copy; 2026 MainView 360 Frankfurt | Alle Preise zzgl. MwSt.</p>
-    </div>
+    <p>&copy; 2026 MainView 360 Frankfurt | Alle Preise zzgl. MwSt.</p>
 </footer>
 
 </body>
