@@ -25,7 +25,7 @@
         .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 1000px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #eee; }
         .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* Design der Preiskarten (Bildschirmfoto 2026-05-14 um 16.31.56.png) */
+        /* Preiskarten (Bildschirmfoto 2026-05-14 um 16.31.56.png) */
         .pricing { padding: 5rem 5%; background: var(--light); text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; max-width: 1200px; margin: 0 auto; }
         .card { background: white; padding: 2.5rem 1.5rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; transition: 0.3s; border-top: 5px solid transparent; }
@@ -36,7 +36,7 @@
         .card li { margin-bottom: 12px; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
         .card li::before { content: '✓'; color: var(--accent); margin-right: 12px; font-weight: bold; }
 
-        /* Design des Formulars (Bildschirmfoto 2026-05-14 um 16.31.45.jpg) */
+        /* Formular (Bildschirmfoto 2026-05-14 um 16.31.45.jpg) */
         .contact-section { padding: 80px 5%; background-color: #fff; text-align: center; }
         .form-container { max-width: 750px; margin: 0 auto; text-align: left; background: #f8f9fb; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
         .form-group { margin-bottom: 25px; }
@@ -48,7 +48,13 @@
         .btn { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
         .btn:hover { background: #a93226; transform: translateY(-2px); }
 
-        footer { padding: 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.9rem; text-align: center; }
+        /* Footer mit Impressum & Datenschutz */
+        footer { padding: 60px 5% 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.9rem; border-top: 5px solid var(--accent); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; text-align: left; }
+        .footer-title { color: #fff; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 15px; font-size: 1.1rem; }
+        .footer-copy { text-align: center; margin-top: 40px; opacity: 0.6; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .card.featured { transform: scale(1); } }
     </style>
 </head>
 <body>
@@ -63,17 +69,13 @@
 </header>
 
 <section class="hero">
-    <h1>MainView 360: Frankfurt am Main virtuell erleben</h1>
-    <p>Vom Westend bis zum Flughafen – wir setzen Frankfurter Unternehmen mit High-End 360°-Touren perfekt in Szene.</p>
+    <h1>MainView 360 Frankfurt</h1>
+    <p>Premium High-Res 360° Rundgänge für Ihr Business</p>
 </section>
 
 <section id="demo" class="demo-section">
     <h2>Interaktive Google Maps Referenz</h2>
-    <p style="max-width: 700px; margin: 0 auto 30px auto; color: #555;">
-        Erleben Sie hier die Qualität unserer Google Street View Integrationen am Beispiel eines Frankfurter Unternehmens.
-    </p>
     <div class="iframe-container">
-        <!-- Google Maps Referenz (Mood Hairdressers) statt Helvetia -->
         <iframe 
             src="https://www.google.com/maps/embed?pb=!4v1715695500000!6m8!1m7!1sCIABIhADydER5C1nfmfyx5kACL9p!2m2!1d47.3897104!2d8.5461187!3f147.81!4f0!5f0!7i11968!8i5984" 
             allowfullscreen="" 
@@ -156,7 +158,29 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 MainView 360 Frankfurt | Alle Preise zzgl. MwSt.</p>
+    <div class="footer-grid">
+        <div>
+            <h3 class="footer-title">Impressum</h3>
+            <p>
+                <strong>MainView 360 Frankfurt</strong><br>
+                Inhaber: [DEIN NAME]<br>
+                [STRASSE]<br>
+                [PLZ] Frankfurt am Main<br><br>
+                E-Mail: [DEINE E-MAIL]
+            </p>
+        </div>
+        <div>
+            <h3 class="footer-title">Datenschutz</h3>
+            <p>
+                Wir achten strikt auf die Einhaltung der DSGVO. Personenbezogene Merkmale wie Gesichter oder Kfz-Kennzeichen 
+                werden in unseren Touren standardmäßig unkenntlich gemacht. Die Daten aus diesem Kontaktformular werden 
+                nur zur Bearbeitung Ihrer Anfrage verwendet.
+            </p>
+        </div>
+    </div>
+    <div class="footer-copy">
+        <p>&copy; 2026 MainView 360 Frankfurt | Alle Preise zzgl. MwSt.</p>
+    </div>
 </footer>
 
 </body>
