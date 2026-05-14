@@ -37,12 +37,12 @@
         .btn { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; transition: 0.3s; border: none; cursor: pointer; font-size: 1.1rem; }
         .btn:hover { background: #a93226; transform: translateY(-2px); }
 
-        /* Demo Sektion Fix */
+        /* Sektion für den Rundgang */
         .demo-section { padding: 60px 5%; text-align: center; }
-        .iframe-container { position: relative; padding-bottom: 45%; height: 0; overflow: hidden; max-width: 1100px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #eee; }
+        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 1100px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #000; }
         .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* Preiskarten nach Bildschirmfoto 2026-05-14 um 16.31.56.png */
+        /* Preiskarten Design */
         .pricing { padding: 5rem 5%; background: var(--light); text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; max-width: 1200px; margin: 0 auto; }
         .card { background: white; padding: 2.5rem 1.5rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; transition: 0.3s; border-top: 5px solid transparent; }
@@ -53,7 +53,7 @@
         .card li { margin-bottom: 12px; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
         .card li::before { content: '✓'; color: var(--accent); margin-right: 12px; font-weight: bold; }
 
-        /* Kontaktformular nach Bildschirmfoto 2026-05-14 um 16.31.45.jpg */
+        /* Formular Design */
         .contact-section { padding: 80px 5%; background-color: #fff; text-align: center; }
         .form-container { max-width: 750px; margin: 0 auto; text-align: left; background: #f8f9fb; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
         .form-group { margin-bottom: 25px; }
@@ -68,7 +68,7 @@
         .footer-title { color: #fff; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 15px; font-size: 1.1rem; }
         .footer-copy { text-align: center; margin-top: 40px; opacity: 0.6; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
         
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .card.featured { transform: scale(1); } .hero { height: auto; padding: 60px 5%; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .card.featured { transform: scale(1); } }
     </style>
 </head>
 <body>
@@ -89,11 +89,11 @@
 </section>
 
 <section id="demo" class="demo-section">
-    <h2>Interaktive Tour Referenz</h2>
+    <h2>Interaktive Referenz (Mood Hairdressers)</h2>
     <div class="iframe-container">
-        <!-- Stabiler Google Maps Link für 360° Panorama -->
+        <!-- Einbettung des spezifischen Google Maps Links -->
         <iframe 
-            src="https://www.google.com/maps/@47.3897104,8.5461187,3a,90y,30.63h,78.81t/data=!3m8!1e1!3m6!1sCIABIhADydER5C1nfmfyx5kACL9p!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgpms-cs-s%2FABJJf502nd8cp0LsTVVWpcfSW_Kwnl-cYbTH9z-3piAj6OT0itiJAhLgymqEsZuMjlrmhCrMf3gEXmzrg4SO-XIcayO3UEon3GNxDEelykebx5Ed6dQ-dHR51YngBZU3GLKFrYimeg17KihS_yG1%3Dw900-h600-k-no-pi11.189236164772268-ya30.62730061063842-ro0-fo100!7i11968!8i5984?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D" 
+            src="https://www.google.com/maps/embed?pb=!4v1715714000000!6m8!1m7!1sCIABIhADydER5C1nfmfyx5kACL9p!2m2!1d47.3897104!2d8.5461187!3f30.63!4f0!5f0.7820865974627469" 
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
@@ -102,16 +102,16 @@
 </section>
 
 <section id="pakete" class="pricing">
-    <h2>Preise für Ihr Projekt in Frankfurt</h2>
+    <h2>Preise für Ihr Projekt</h2>
     <div class="grid">
         <div class="card">
             <h3>Basic „Start-up“</h3>
             <div class="price">399 € <span>Netto</span></div>
             <ul>
                 <li>3-5 High-Res 360° Panoramen</li>
-                <li>Integration in Google Maps & Street View</li>
-                <li>Basis-Retusche & Verpixelung</li>
-                <li>1 Jahr Hosting inklusive</li>
+                <li>Integration in Google Maps</li>
+                <li>Basis-Retusche</li>
+                <li>1 Jahr Hosting</li>
             </ul>
             <a href="#kontakt" class="btn">Anfragen</a>
         </div>
@@ -120,9 +120,9 @@
             <div class="price">749 € <span>Netto</span></div>
             <ul>
                 <li>8-12 High-Res 360° Panoramen</li>
-                <li>Interaktive Hotspots zur Navigation</li>
-                <li>Einbindung von Info-Punkten</li>
-                <li>HTML-Embed Code für die Website</li>
+                <li>Interaktive Hotspots</li>
+                <li>Info-Punkte Einbindung</li>
+                <li>HTML-Embed Code</li>
             </ul>
             <a href="#kontakt" class="btn" style="width: 80%;">Meistgewählt</a>
         </div>
@@ -130,10 +130,10 @@
             <h3>Premium „Skyline Elite“</h3>
             <div class="price">ab 1.490 € <span>Netto</span></div>
             <ul>
-                <li>Bis zu 25 High-Res Panoramen</li>
-                <li>Inkl. 360° Luftaufnahme (Skyline)</li>
-                <li>Individuelles Branding (Logo)</li>
-                <li>Express-Lieferung innerhalb von 48h</li>
+                <li>Bis zu 25 Panoramen</li>
+                <li>Inkl. 360° Luftaufnahme</li>
+                <li>Individuelles Branding</li>
+                <li>Express-Lieferung</li>
             </ul>
             <a href="#kontakt" class="btn">Anfragen</a>
         </div>
@@ -141,7 +141,7 @@
 </section>
 
 <section id="kontakt" class="contact-section">
-    <h2 style="font-size: 2.5rem; margin-bottom: 40px;">Kontaktanfrage</h2>
+    <h2>Kontaktanfrage</h2>
     <div class="form-container">
         <form action="https://formspree.io/f/mzdoqwdl" method="POST">
             <div class="form-group">
@@ -153,22 +153,10 @@
                 <input type="email" name="email" required>
             </div>
             <div class="form-group">
-                <label>Telefonnummer</label>
-                <input type="tel" name="telefon" placeholder="Für Rückfragen">
-            </div>
-            <div class="form-group">
-                <label>Paket-Interesse</label>
-                <select name="paket">
-                    <option value="Basic">Basic (399 €)</option>
-                    <option value="Business">Business (749 €)</option>
-                    <option value="Premium">Premium (ab 1.490 €)</option>
-                </select>
-            </div>
-            <div class="form-group">
                 <label>Nachricht</label>
-                <textarea name="message" rows="5" placeholder="Beschreiben Sie Ihr Projekt..."></textarea>
+                <textarea name="message" rows="5" placeholder="Ihr Projekt..."></textarea>
             </div>
-            <button type="submit" class="btn" style="width: 100%; padding: 20px;">Anfrage jetzt absenden</button>
+            <button type="submit" class="btn" style="width: 100%; padding: 20px;">Anfrage absenden</button>
         </form>
     </div>
 </section>
@@ -180,15 +168,16 @@
             <p>
                 <strong>MainView 360 Frankfurt</strong><br>
                 Inhaber: [DEIN NAME]<br>
-                [STRASSE]<br>
-                [PLZ] Frankfurt am Main<br><br>
+                [STRASSE], Frankfurt<br>
                 E-Mail: [DEINE E-MAIL]
             </p>
         </div>
         <div>
             <h3 class="footer-title">Datenschutz</h3>
             <p>
-                Wir achten strikt auf die Einhaltung der DSGVO. Personenbezogene Merkmale werden unkenntlich gemacht. Die Daten aus diesem Formular werden nur zur Bearbeitung Ihrer Anfrage genutzt.
+                Wir halten uns an die DSGVO. 
+                Personenbezogene Merkmale werden unkenntlich gemacht.
+                Die Daten aus diesem Formular werden nur zur Bearbeitung Ihrer Anfrage genutzt..
             </p>
         </div>
     </div>
