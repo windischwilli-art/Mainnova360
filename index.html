@@ -17,38 +17,52 @@
         .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
         nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
 
-        .hero { background: linear-gradient(rgba(26,42,58,0.8), rgba(26,42,58,0.8)), url('https://images.unsplash.com/photo-1541604193435-22287d32c2c2?auto=format&fit=crop&q=80&w=2000'); 
-                background-size: cover; background-position: center; height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10%; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        /* Hero Bereich basierend auf Bildschirmfoto 2026-05-14 um 17.20.43.jpg */
+        .hero { 
+            background: linear-gradient(rgba(26,42,58,0.7), rgba(26,42,58,0.7)), url('https://images.unsplash.com/photo-1541604193435-22287d32c2c2?auto=format&fit=crop&q=80&w=2000'); 
+            background-size: cover; 
+            background-position: center; 
+            height: 60vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: white; 
+            padding: 0 10%; 
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 1.5rem; font-weight: bold; }
+        .hero p { font-size: 1.25rem; max-width: 850px; margin-bottom: 2rem; line-height: 1.4; }
 
         .demo-section { padding: 60px 5%; text-align: center; }
-        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 1000px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #eee; }
+        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 1000px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
         .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* Preiskarten (Bildschirmfoto 2026-05-14 um 16.31.56.png) */
+        /* Preiskarten */
         .pricing { padding: 5rem 5%; background: var(--light); text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; max-width: 1200px; margin: 0 auto; }
-        .card { background: white; padding: 2.5rem 1.5rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; transition: 0.3s; border-top: 5px solid transparent; }
-        .card.featured { border-top-color: var(--accent); transform: scale(1.05); z-index: 2; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .card { background: white; padding: 2.5rem 1.5rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; transition: 0.3s; }
+        .card.featured { border-top: 5px solid var(--accent); transform: scale(1.05); z-index: 2; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: #1a2a3a; }
         .price { font-size: 3rem; font-weight: bold; margin: 1rem 0; color: #1a2a3a; }
         .price span { font-size: 1rem; color: #666; font-weight: normal; }
         .card ul { list-style: none; padding: 0; margin: 2rem 0; text-align: left; }
-        .card li { margin-bottom: 12px; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+        .card li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
         .card li::before { content: '✓'; color: var(--accent); margin-right: 12px; font-weight: bold; }
 
-        /* Formular (Bildschirmfoto 2026-05-14 um 16.31.45.jpg) */
+        /* Formular */
         .contact-section { padding: 80px 5%; background-color: #fff; text-align: center; }
         .form-container { max-width: 750px; margin: 0 auto; text-align: left; background: #f8f9fb; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
         .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 1.1rem; }
         .form-group input, .form-group select, .form-group textarea { 
             width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: inherit; font-size: 1rem; background: #fff;
         }
 
-        .btn { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
+        .btn { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; transition: 0.3s; border: none; cursor: pointer; font-size: 1rem; }
         .btn:hover { background: #a93226; transform: translateY(-2px); }
 
-        /* Footer mit Impressum & Datenschutz */
+        /* Footer */
         footer { padding: 60px 5% 40px 5%; background-color: var(--primary); color: #fff; font-size: 0.9rem; border-top: 5px solid var(--accent); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; text-align: left; }
         .footer-title { color: #fff; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 15px; font-size: 1.1rem; }
@@ -68,13 +82,15 @@
     </nav>
 </header>
 
+<!-- Hero Bereich exakt wie in Bildschirmfoto 2026-05-14 um 17.20.43.jpg -->
 <section class="hero">
-    <h1>MainView 360 Frankfurt</h1>
-    <p>Premium High-Res 360° Rundgänge für Ihr Business</p>
+    <h1>MainView 360: Frankfurt am Main virtuell erleben</h1>
+    <p>Vom Westend bis zum Flughafen – wir setzen Frankfurter Unternehmen mit High-End 360°-Touren perfekt in Szene.</p>
+    <a href="#kontakt" class="btn">Jetzt Beratung anfragen</a>
 </section>
 
 <section id="demo" class="demo-section">
-    <h2>Interaktive Google Maps Referenz</h2>
+    <h2>Interaktive Tour</h2>
     <div class="iframe-container">
         <iframe 
             src="https://www.google.com/maps/embed?pb=!4v1715695500000!6m8!1m7!1sCIABIhADydER5C1nfmfyx5kACL9p!2m2!1d47.3897104!2d8.5461187!3f147.81!4f0!5f0!7i11968!8i5984" 
@@ -99,6 +115,7 @@
             </ul>
             <a href="#kontakt" class="btn">Anfragen</a>
         </div>
+
         <div class="card featured">
             <h3>Business „Main-Metropole“</h3>
             <div class="price">749 € <span>Netto</span></div>
@@ -110,6 +127,7 @@
             </ul>
             <a href="#kontakt" class="btn" style="width: 80%;">Meistgewählt</a>
         </div>
+
         <div class="card">
             <h3>Premium „Skyline Elite“</h3>
             <div class="price">ab 1.490 € <span>Netto</span></div>
@@ -173,8 +191,8 @@
             <h3 class="footer-title">Datenschutz</h3>
             <p>
                 Wir achten strikt auf die Einhaltung der DSGVO. Personenbezogene Merkmale wie Gesichter oder Kfz-Kennzeichen 
-                werden in unseren Touren standardmäßig unkenntlich gemacht. Die Daten aus diesem Kontaktformular werden 
-                nur zur Bearbeitung Ihrer Anfrage verwendet.
+                werden in unseren Touren standardmäßig unkenntlich gemacht. Die Daten aus diesem Formular werden 
+                nur zur Bearbeitung Ihrer Anfrage genutzt.
             </p>
         </div>
     </div>
